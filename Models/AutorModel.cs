@@ -1,6 +1,7 @@
-﻿namespace CodexAPI.Models;
-{
+﻿using System.Text.Json.Serialization;
 
+namespace CodexAPI.Models
+{
 public class AutorModel
 {
     public int Id { get; set; }
