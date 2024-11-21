@@ -3,6 +3,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using CodexAPI.Data;
+using CodexAPI.Services.Autor;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,9 @@ builder.Services.AddControllers();
 // Configuração de Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Criando a comunicacao entre interface e service dos autores
+builder.Services.AddScoped<IAutorInterface, AutorService>();
 
 // Configuração do banco de dados
 builder.Services.AddDbContext<AppDbContext>(options =>
